@@ -1,0 +1,15 @@
+C:\Users\19yus\Desktop\GeorgeBrownClasses\Comp2129-OOP-C#\Flight_Management\Flight_Management\bin\Debug\net9.0\Flight_Management.exe
+C:\Users\19yus\Desktop\GeorgeBrownClasses\Comp2129-OOP-C#\Flight_Management\Flight_Management\bin\Debug\net9.0\Flight_Management.deps.json
+C:\Users\19yus\Desktop\GeorgeBrownClasses\Comp2129-OOP-C#\Flight_Management\Flight_Management\bin\Debug\net9.0\Flight_Management.runtimeconfig.json
+C:\Users\19yus\Desktop\GeorgeBrownClasses\Comp2129-OOP-C#\Flight_Management\Flight_Management\bin\Debug\net9.0\Flight_Management.dll
+C:\Users\19yus\Desktop\GeorgeBrownClasses\Comp2129-OOP-C#\Flight_Management\Flight_Management\bin\Debug\net9.0\Flight_Management.pdb
+C:\Users\19yus\Desktop\GeorgeBrownClasses\Comp2129-OOP-C#\Flight_Management\Flight_Management\obj\Debug\net9.0\Flight_Management.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\19yus\Desktop\GeorgeBrownClasses\Comp2129-OOP-C#\Flight_Management\Flight_Management\obj\Debug\net9.0\Flight_Management.AssemblyInfoInputs.cache
+C:\Users\19yus\Desktop\GeorgeBrownClasses\Comp2129-OOP-C#\Flight_Management\Flight_Management\obj\Debug\net9.0\Flight_Management.AssemblyInfo.cs
+C:\Users\19yus\Desktop\GeorgeBrownClasses\Comp2129-OOP-C#\Flight_Management\Flight_Management\obj\Debug\net9.0\Flight_Management.csproj.CoreCompileInputs.cache
+C:\Users\19yus\Desktop\GeorgeBrownClasses\Comp2129-OOP-C#\Flight_Management\Flight_Management\obj\Debug\net9.0\Flight_Management.sourcelink.json
+C:\Users\19yus\Desktop\GeorgeBrownClasses\Comp2129-OOP-C#\Flight_Management\Flight_Management\obj\Debug\net9.0\Flight_Management.dll
+C:\Users\19yus\Desktop\GeorgeBrownClasses\Comp2129-OOP-C#\Flight_Management\Flight_Management\obj\Debug\net9.0\refint\Flight_Management.dll
+C:\Users\19yus\Desktop\GeorgeBrownClasses\Comp2129-OOP-C#\Flight_Management\Flight_Management\obj\Debug\net9.0\Flight_Management.pdb
+C:\Users\19yus\Desktop\GeorgeBrownClasses\Comp2129-OOP-C#\Flight_Management\Flight_Management\obj\Debug\net9.0\Flight_Management.genruntimeconfig.cache
+C:\Users\19yus\Desktop\GeorgeBrownClasses\Comp2129-OOP-C#\Flight_Management\Flight_Management\obj\Debug\net9.0\ref\Flight_Management.dll
