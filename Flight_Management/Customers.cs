@@ -2,8 +2,6 @@
 
 public class Customers
 {
-    
-
     public string customerName;
     public string customerEmail;
     public long customerPhone;
@@ -20,5 +18,10 @@ public class Customers
     public string summary()
     {
         return $" ID: {customer_id} ,Name: {customerName}, Email: {customerEmail}, Phone: {customerPhone},";
+    }
+
+    public string removedCustumers()
+    {
+        return $" Custumer Named {customerName} - ID: {customer_id} Successfully  removed";
     }
 }
