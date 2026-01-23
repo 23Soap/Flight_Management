@@ -88,12 +88,13 @@ public class Flights
                                 break;
                             
                             case 2:
+                                
                                 if (flight.Count != 0)
                                 {
                                     foreach (var flights in flight)
                                     {
                                         Console.WriteLine(flights.getFlightSummary());
-                                        break;
+                                        
                                     }
                                 }
                                 break;
@@ -119,6 +120,7 @@ public class Flights
                             case 4:
                                 Console.WriteLine("Enter Flight ID for DELETING Flights:");
                                 int deleteFlightId = Int32.Parse(Console.ReadLine());
+                                
                                 Flights deleteFlight = null;
                                 foreach (Flights f in flight)
                                 {
