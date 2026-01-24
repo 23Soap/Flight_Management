@@ -18,8 +18,7 @@ public class Bookings
     public string getBookingSummary()
     {
         return $"Booking #{bookingNumber} on {bookingDate}\n" +
-               $"Name: {customers.customerName}, Flight NO: {flight.flightNumber}\n" +
-               $"Booking Date: {bookingDate}";
+               $"Name: {customers.customerName}, Flight NO: {flight.flightNumber}\n";
     }
 
     public string getBookingDate()
@@ -68,8 +67,7 @@ public class Bookings
                     int bookingNumber = rndm.Next(1000, 9999);
                     
                     string bookingDate = null;
-                    
-                    
+                    Console.Clear();
                     bool isTheSameCustomer = false;
                     Customers selectedCustomer = null;
                     foreach (var id in customersList)
@@ -78,10 +76,11 @@ public class Bookings
                         {
                             isTheSameCustomer = true;
                             selectedCustomer = id;
-                            Console.WriteLine($"Customer ID: #{selectedCustomer.customer_id} is found\n" +
+                            Console.WriteLine($"We Found the customer:\n" +
+                                              $"Customer ID: #{selectedCustomer.customer_id} is found\n" +
                                               $"Name : {selectedCustomer.customerName}\n" +
                                               $"E-Mail : {selectedCustomer.customerEmail}\n" +
-                                              $"Phone Number: {selectedCustomer.customerPhone}");
+                                              $"Phone Number: {selectedCustomer.customerPhone}\n");
                             break;
                         }
                     }
@@ -94,24 +93,32 @@ public class Bookings
                         {
                             isTheSameFlight = true;
                             selectedFlight = id;
-                            Console.WriteLine($"Flight ID: #{selectedFlight.flightNumber} is found\n" +
+                            Console.WriteLine($"We Found the flight:\n" +
+                                              $"Flight ID: #{selectedFlight.flightNumber} is found\n" +
                                               $"From : {selectedFlight.origin} -----> {selectedFlight.destination}\n");
                             break;
                         }
                     }
-                    
-                    Bookings newBooking = new Bookings(bookingNumber,bookingDate,selectedCustomer,selectedFlight);
-                    bookingsList.Add(newBooking);
-                    selectedFlight.numberOfPassengers++;
-                    break;
-                    
-                    
-                case 2:
 
+                    if (isTheSameCustomer && isTheSameFlight)
+                    {
+                        if (selectedFlight.numberOfPassengers < selectedFlight.maxSeats)
+                        {
+                            Bookings newBooking = new Bookings(bookingNumber,bookingDate,selectedCustomer,selectedFlight);
+                            bookingsList.Add(newBooking);
+                            selectedFlight.numberOfPassengers++;
+                            Console.WriteLine("Successfully Booked!");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Unfortunately #{selectedFlight.flightNumber} flight is FULL.");
+                        }
+                    }
+                    break;
+                case 2:
                     foreach (var booking in bookingsList)
                     {
                         Console.WriteLine(booking.getBookingSummary());
-                        Console.WriteLine(booking.getBookingDate());
                     }
                     
                     break;
