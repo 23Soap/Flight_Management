@@ -81,11 +81,28 @@ public class Customers
                     }
                     
                     Random rndm = new Random();
-                    int customer_id = rndm.Next(1000, 9999);
-                    bool isSameId;
+                    int customer_id;
+
+                    while (true)
+                    {
+                        customer_id = rndm.Next(1000, 9999);
+                        bool isSameId = false;
+                        foreach (var id in customer)
+                        {
+                            if (id.customer_id == customer_id)
+                            {
+                                isSameId = true;
+                                break;
+                            }
+                        }
+
+                        if (isSameId == false)
+                        {
+                            break;
+                        }
+                    }
 
                     bool isSameCustomer = false;
-
                     foreach (var customers in customer)
                     {
                         if (customers.customerEmail == customerEmail || customers.customerPhone == customerPhone)
@@ -105,31 +122,6 @@ public class Customers
                         Customers newCustomer = new Customers(customerName, customerEmail, customerPhone, customer_id);
                         customer.Add(newCustomer);
                         Console.WriteLine("Successfully Added!");
-                    }
-
-                    do
-                    {
-                        isSameId = true;
-                        customer_id = rndm.Next(1000, 9999);
-
-                        foreach (var c in customer)
-                        {
-                            if (c.customer_id == customer_id)
-                            {
-                                isSameId = true;
-                                break;
-                            }
-                        }
-                    } while (isSameId);
-
-                    if (isSameId)
-                    {
-                        
-                    }
-                    else
-                    {
-                        Customers newCustomer = new Customers(customerName, customerEmail, customerPhone, customer_id);
-                        customer.Add(newCustomer);
                     }
                     break;
 
