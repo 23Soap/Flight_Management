@@ -28,6 +28,33 @@ public class Flights
         return $"Delete Flight Number: {flightNumber} Origin: {origin} To {destination}";
     }
 
+    public static int makeUniqueID(List<Flights> flight)
+    {
+        int flightNumber = 0;
+        
+        Random rndm = new Random();
+        while (true)
+        {
+            bool isIdSame = false;
+            flightNumber = rndm.Next(1000, 9999);
+                                    
+            foreach (var id in flight)
+            {
+                if (id.flightNumber == flightNumber)
+                {
+                    isIdSame = true;
+                    break;
+                }
+            }
+            if (isIdSame == false)
+            {
+                break;
+            }
+        }
+
+        return flightNumber;
+    }
+
     public static void getFlightMenu(List<Flights> flight )
     {
 
@@ -40,36 +67,44 @@ public class Flights
                         Console.WriteLine("3 - View Particular Flights");
                         Console.WriteLine("4 - Delete Flights");
                         Console.WriteLine("5 - Back to Main Menu");
-                        
+
                         int userInput = Int32.Parse(Console.ReadLine());
                         Console.Clear();
-
+                        
                         switch (userInput)
                         {
                             case 1 :
+                                
                                 Console.WriteLine("Add Origin");
-                                string origin = Console.ReadLine();
+                                string origin = Console.ReadLine().ToUpper();
                                 Console.Clear();
+                                
+                                
                                 Console.WriteLine("Enter Destination:");
-                                string destination = Console.ReadLine();
+                                string destination = Console.ReadLine().ToUpper();
                                 Console.Clear();
+                                
+                                
                                 Console.WriteLine("Enter Max Seats:");
                                 int maxSeats = Int32.Parse(Console.ReadLine());
                                 Console.Clear();
+                                
+                                
                                 Console.WriteLine("Enter Number of Passengers:");
                                 int numberOfPassengers = Int32.Parse(Console.ReadLine());
+                                Console.Clear();
                                 
-                                Random rndm = new Random();
-                                int flightNumber = rndm.Next(1000, 9999);
+
+                                int uniqueId = makeUniqueID(flight);
                                 
                                 
-                                Flights newFlight = new Flights(flightNumber, origin, destination, maxSeats,numberOfPassengers);
+                                Flights newFlight = new Flights(uniqueId, origin, destination, maxSeats,numberOfPassengers);
                                 newFlight.getFlightSummary();
                                 
                                 bool isSameFlight = false;
                                 foreach (var flights in flight)
                                 {
-                                    if (flights.flightNumber == flightNumber)
+                                    if (flights.flightNumber == uniqueId)
                                     {
                                         isSameFlight = true;
                                         break;
@@ -82,7 +117,7 @@ public class Flights
                                 }
                                 else
                                 {
-                                    Flights newFlights = new Flights(flightNumber, origin, destination, maxSeats, numberOfPassengers);
+                                    Flights newFlights = new Flights(uniqueId, origin, destination, maxSeats, numberOfPassengers);
                                     flight.Add(newFlights);
                                 }
                                 break;

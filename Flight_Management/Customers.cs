@@ -28,6 +28,35 @@ public class Customers
         return $"Customer Named {customerName} - ID: {customer_id} Successfully removed";
     }
 
+    public static int uniqueIdMaker(List<Customers> customer)
+    {
+        Random rndm = new Random();
+        int customer_id;
+
+        while (true)
+        {
+            customer_id = rndm.Next(1000, 9999);
+            bool isSameId = false;
+            foreach (var id in customer)
+            {
+                if (id.customer_id == customer_id)
+                {
+                    isSameId = true;
+                    break;
+                }
+            }
+
+            if (isSameId == false)
+            {
+                break;
+            }
+        }
+
+        return customer_id;
+    }
+    
+    
+
     public static void getCustomerMenu(List<Customers> customer)
     {
 
@@ -58,10 +87,10 @@ public class Customers
             {
                 case 1:
                     Console.WriteLine("Enter Your Name:");
-                    string customerName = Console.ReadLine();
+                    string customerName = Console.ReadLine().ToUpper();
                     Console.Clear();
                     Console.WriteLine("Enter Your Email:");
-                    string customerEmail = Console.ReadLine();
+                    string customerEmail = Console.ReadLine().ToUpper();
                     Console.Clear();
                     Console.WriteLine("Enter Your Phone:");
 
@@ -79,28 +108,8 @@ public class Customers
                             Console.WriteLine("Please Enter a number");
                         }
                     }
-                    
-                    Random rndm = new Random();
-                    int customer_id;
 
-                    while (true)
-                    {
-                        customer_id = rndm.Next(1000, 9999);
-                        bool isSameId = false;
-                        foreach (var id in customer)
-                        {
-                            if (id.customer_id == customer_id)
-                            {
-                                isSameId = true;
-                                break;
-                            }
-                        }
-
-                        if (isSameId == false)
-                        {
-                            break;
-                        }
-                    }
+                    int randomId = Customers.uniqueIdMaker(customer);
 
                     bool isSameCustomer = false;
                     foreach (var customers in customer)
@@ -119,7 +128,7 @@ public class Customers
                     }
                     else
                     {
-                        Customers newCustomer = new Customers(customerName, customerEmail, customerPhone, customer_id);
+                        Customers newCustomer = new Customers(customerName, customerEmail, customerPhone, randomId);
                         customer.Add(newCustomer);
                         Console.WriteLine("Successfully Added!");
                     }
